@@ -94,7 +94,7 @@
 
     .btn {
         height: 80%;
-        width: 15%;
+        width: 25%;
     }
 
 </style>
