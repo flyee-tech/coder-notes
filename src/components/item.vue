@@ -1,7 +1,10 @@
 <template>
   <div class="item">
-    <h1 class="title">
-      {{ title }}
+    <h1
+      class="title"
+      @click="go_article"
+    >
+      <b>{{ title }}</b>
     </h1>
     <p>
       {{ content }}
@@ -16,6 +19,10 @@
             return {}
         },
         props: {
+            aId:{
+                type: Number,
+                required: true
+            },
             title: {
                 type: String,
                 required: true
@@ -25,6 +32,12 @@
                 required: true
             }
         },
+        methods: {
+            go_article() {
+                console.log('test')
+                console.log(this.aId)
+            }
+        }
     }
 </script>
 

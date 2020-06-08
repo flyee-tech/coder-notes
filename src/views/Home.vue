@@ -4,6 +4,7 @@
       <Item
         v-for="i in list"
         :key="i.id"
+        :a-id="i.id"
         :title="i.title"
         :content="i.content"
       />
@@ -81,6 +82,7 @@
 
 <style>
     .home {
+        background-color: beige;
         width: 66%;
         text-align: left;
         position: absolute;
@@ -90,5 +92,29 @@
 
     .content {
         min-height: calc(100vh - 60px - 88px);
+    }
+
+    .btn-prev {
+        background-color: red;
+    }
+
+    .el-pager li.number {
+        background-color: beige;
+    }
+
+    .el-pager li.el-icon {
+        background-color: beige;
+    }
+
+    .el-pager li.active {
+        background-color: beige;
+    }
+
+    .el-pagination button.btn-prev {
+        background-color: beige !important;
+    }
+
+    .el-pagination button.btn-next {
+        background-color: beige !important;
     }
 </style>

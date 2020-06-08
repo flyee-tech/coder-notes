@@ -85,16 +85,17 @@
 
 <style scoped>
     .header {
+        text-align: center;
         height: 53px;
         width: 100%;
         /*background-color: #24292e;*/
         border-bottom: 1px solid #d3d3d3;
-
+        background-color: beige;
     }
 
     .btn {
         height: 80%;
-        width: 25%;
+        width: 18%;
     }
 
 </style>
