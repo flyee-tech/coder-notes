@@ -94,10 +94,6 @@
         min-height: calc(100vh - 60px - 88px);
     }
 
-    .btn-prev {
-        background-color: red;
-    }
-
     .el-pager li.number {
         background-color: beige;
     }
