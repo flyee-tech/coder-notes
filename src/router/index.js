@@ -22,6 +22,16 @@ const routes = [
         path: '/tag',
         name: 'Tag',
         component: () => import(/* webpackChunkName: "about" */ '../views/Tag.vue')
+    },
+    {
+        path: '/manager/home',
+        name: 'MHome',
+        component: () => import(/* webpackChunkName: "about" */ '../views/manager/MHome.vue')
+    },
+    {
+        path: '/manager/tag',
+        name: 'MTag',
+        component: () => import(/* webpackChunkName: "about" */ '../views/manager/MTag.vue')
     }
 ]
 
