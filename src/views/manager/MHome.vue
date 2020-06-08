@@ -1,12 +1,12 @@
 <template>
   <div class="mhome">
     <el-table
-      :data="tableData"
+      :data="list"
       border
       style="width: 100%; margin-top: 33px"
     >
       <el-table-column
-        prop="date"
+        prop="createdTime"
         label="日期"
         width="100"
       />
@@ -16,16 +16,16 @@
         width="300"
       />
       <el-table-column
-        prop="province"
+        prop="content"
         label="内容"
       />
       <el-table-column
-        prop="city"
+        prop="type"
         label="类型"
         width="100"
       />
       <el-table-column
-        prop="address"
+        prop="isPublic"
         label="是否公开"
         width="100"
       />
@@ -61,8 +61,25 @@
 </template>
 
 <script>
+
+    import {getArticleList} from '@/api/app'
+
     export default {
+        mounted() {
+            this.getData();
+        },
         methods: {
+            getData() {
+                getArticleList().then(res => {
+                    console.log(res)
+                    if (res.code === 200) {
+                        this.list = res.list;
+                    }
+                }).catch(res => {
+                    console.log("请求失败");
+                    console.log(res);
+                })
+            },
             handleClick(row) {
                 console.log(row);
             }
@@ -70,37 +87,10 @@
 
         data() {
             return {
-                tableData: [{
-                    date: '2016-05-02',
-                    name: '王小虎',
-                    province: '上海',
-                    city: '普陀区',
-                    address: '是',
-                    zip: 200333
-                }, {
-                    date: '2016-05-04',
-                    name: '王小虎',
-                    province: '上海',
-                    city: '普陀区',
-                    address: '是',
-                    zip: 200333
-                }, {
-                    date: '2016-05-01',
-                    name: '王小虎',
-                    province: '上海',
-                    city: '普陀区',
-                    address: '是',
-                    zip: 200333
-                }, {
-                    date: '2016-05-03',
-                    name: '王小虎',
-                    province: '上海',
-                    city: '普陀区',
-                    address: '否',
-                    zip: 200333
-                }]
+                list: []
             }
-        }
+        },
+
     }
 </script>
 
