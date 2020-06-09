@@ -2,7 +2,7 @@
   <div style="height: 53px;border-bottom: 1px solid #d3d3d3;">
     <el-button
       style="width: 10%"
-      @click="query"
+      @click="home"
     >
       首页
     </el-button>
@@ -31,7 +31,7 @@
             newMD() {
                 window.location.href = '/manager/editer'
             },
-            query() {
+            home() {
                 window.location.href = '/manager/home'
 
             },
