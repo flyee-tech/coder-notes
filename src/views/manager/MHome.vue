@@ -23,11 +23,13 @@
         prop="type"
         label="类型"
         width="100"
+        :formatter="typeFormater"
       />
       <el-table-column
         prop="isPublic"
         label="是否公开"
         width="100"
+        :formatter="isPublicFormater"
       />
       <el-table-column
         fixed="right"
@@ -104,7 +106,21 @@
             edit(row){
                 console.log(row);
                 window.location.href = '/manager/editer/' + row.id
-            }
+            },
+            isPublicFormater(row){
+                return row.isPublic === 1 ? '是' : '否';
+            },
+            typeFormater(row){
+                if (row.type === 1) {
+                    return '文章';
+                }
+                if (row.type === 2) {
+                    return '笔记';
+                }
+                if (row.type === 3) {
+                    return '脑图';
+                }
+            },
         },
 
         data() {

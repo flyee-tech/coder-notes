@@ -71,7 +71,7 @@
                             message: '保存成功',
                             type: 'success'
                         });
-                        setTimeout(this.reloadData, 1000);
+                        setTimeout(this.reloadData(res.id), 1000);
                     }
                 }).catch(res => {
                     this.$message.error('请求失败');
@@ -100,8 +100,8 @@
                 this.editor = window?.vditor;
                 this.editor.setValue(this.to.content);
             },
-            reloadData() {
-                location.reload();
+            reloadData(id) {
+                window.location.href = '/manager/editer/' + id
             },
         },
         mounted() {

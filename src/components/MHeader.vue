@@ -7,7 +7,10 @@
     <el-button style="width: 10%">
       标签
     </el-button>
-    <el-button style="width: 10%">
+    <el-button
+      style="width: 10%"
+      @click="newMD"
+    >
       新建文章
     </el-button>
     <el-button style="width: 10%">
@@ -18,7 +21,17 @@
 
 <script>
     export default {
-        name: "MHeader"
+        name: "MHeader",
+        data() {
+            return {
+
+            }
+        },
+        methods: {
+            newMD() {
+                window.location.href = '/manager/editer'
+            }
+        }
     }
 </script>
 
