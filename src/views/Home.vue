@@ -5,17 +5,17 @@
         v-for="i in list"
         :key="i.id"
         :a-id="i.id"
-        :title="i.title"
+        :title="i.name"
         :content="i.content"
       />
-
-
       <el-pagination
         style="margin-top: 66px"
         :page-size="10"
         :pager-count="11"
         layout="prev, pager, next"
-        :total="2000"
+        :total="count"
+        :current-page.sync="pn"
+        @current-change="handleCurrentChange"
       />
     </div>
     <Footer />
@@ -25,6 +25,7 @@
 <script>
     import Item from "../components/item";
     import Footer from "../components/Footer";
+    import {getPublicArticleList} from '@/api/app'
 
     export default {
         name: "Home",
@@ -33,49 +34,31 @@
         },
         data() {
             return {
-                list: [
-                    {
-                        id: 1,
-                        title: '文章标题1',
-                        content: '文章内容简介1'
-                    },
-                    {
-                        id: 2,
-                        title: '文章标题1',
-                        content: '文章内容简介1'
-                    },
-                    {
-                        id: 3,
-                        title: '文章标题1',
-                        content: '文章内容简介1'
-                    },
-                    {
-                        id: 4,
-                        title: '文章标题1',
-                        content: '文章内容简介1'
-                    },
-                    {
-                        id: 5,
-                        title: '文章标题1',
-                        content: '文章内容简介1'
-                    },
-                    {
-                        id: 6,
-                        title: '文章标题1',
-                        content: '文章内容简介1'
-                    },
-                    {
-                        id: 7,
-                        title: '文章标题1',
-                        content: '文章内容简介1'
-                    },
-                    {
-                        id: 8,
-                        title: '文章标题1',
-                        content: '文章内容简介1'
-                    },
-                ]
+                count: 1,
+                pn: 1,
+                list: []
             }
+        },
+        mounted() {
+            this.getData();
+        },
+        methods: {
+            getData() {
+                getPublicArticleList({"pn": this.pn}).then(res => {
+                    console.log(res)
+                    if (res.code === 200) {
+                        this.list = res.list;
+                        this.count = res.count;
+                    }
+                }).catch(res => {
+                    console.log("请求失败");
+                    console.log(res);
+                })
+            },
+            handleCurrentChange(v) {
+                this.pn = v;
+                this.getData();
+            },
         },
     };
 </script>

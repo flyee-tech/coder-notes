@@ -49,6 +49,7 @@
             编辑
           </el-button>
           <el-button
+            @click="deleteRow(scope.row)"
             type="text"
             size="small"
           >
@@ -62,7 +63,7 @@
 
 <script>
 
-    import {getArticleList} from '@/api/app'
+    import {getArticleList, delArticle} from '@/api/app'
 
     export default {
         mounted() {
@@ -75,6 +76,21 @@
                     if (res.code === 200) {
                         this.list = res.list;
                     }
+                }).catch(res => {
+                    console.log("请求失败");
+                    console.log(res);
+                })
+            },
+            reloadData() {
+                location.reload();
+            },
+            deleteRow(row) {
+                delArticle({"id": row.id}).then(res => {
+                    this.$message({
+                        message: res.msg,
+                        type: 'success'
+                    });
+                    setTimeout(this.reloadData, 1000);
                 }).catch(res => {
                     console.log("请求失败");
                     console.log(res);

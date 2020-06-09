@@ -36,6 +36,7 @@
             go_article() {
                 console.log('test')
                 console.log(this.aId)
+                window.location.href = '/article/' + this.aId
             }
         }
     }
