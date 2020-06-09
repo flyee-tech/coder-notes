@@ -32,6 +32,11 @@ const routes = [
         path: '/manager/tag',
         name: 'MTag',
         component: () => import(/* webpackChunkName: "about" */ '../views/manager/MTag.vue')
+    },
+    {
+        path: '/article/:id',
+        name: 'article',
+        component: () => import(/* webpackChunkName: "about" */ '../views/Article.vue')
     }
 ]
 

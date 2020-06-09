@@ -82,6 +82,7 @@
             },
             handleClick(row) {
                 console.log(row);
+                window.location.href = '/article/' + row.id
             }
         },
 
