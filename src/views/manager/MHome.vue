@@ -3,7 +3,7 @@
     <el-table
       :data="list"
       border
-      style="width: 100%; margin-top: 33px"
+      style="width: 100%; margin-top: 22px"
     >
       <el-table-column
         prop="createdTime"
