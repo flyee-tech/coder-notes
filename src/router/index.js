@@ -37,6 +37,16 @@ const routes = [
         path: '/article/:id',
         name: 'article',
         component: () => import(/* webpackChunkName: "about" */ '../views/Article.vue')
+    },
+    {
+        path: '/manager/editer/:id',
+        name: 'editer',
+        component: () => import(/* webpackChunkName: "about" */ '../views/manager/Editer.vue')
+    },
+    {
+        path: '/manager/editer',
+        name: 'editer',
+        component: () => import(/* webpackChunkName: "about" */ '../views/manager/Editer.vue')
     }
 ]
 

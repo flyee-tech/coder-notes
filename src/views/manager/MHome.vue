@@ -43,6 +43,7 @@
             查看
           </el-button>
           <el-button
+            @click="edit(scope.row)"
             type="text"
             size="small"
           >
@@ -99,6 +100,10 @@
             handleClick(row) {
                 console.log(row);
                 window.location.href = '/article/' + row.id
+            },
+            edit(row){
+                console.log(row);
+                window.location.href = '/manager/editer/' + row.id
             }
         },
 

@@ -29,3 +29,11 @@ export function delArticle(params) {
         params
     })
 }
+
+export function saveArticle(params) {
+    return request({
+        url: '/article/save',
+        method: 'post',
+        params
+    })
+}

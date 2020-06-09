@@ -1,0 +1,121 @@
+<template>
+  <div id="editer">
+    <el-input
+      style="width: 50%;"
+      v-model="to.name"
+    />
+    <div
+      style="margin-top: 5px"
+      id="vditor"
+    />
+    <div style="text-align: right">
+      <el-checkbox
+        style="width: 10%;margin-right: 30px;"
+        v-model="checked"
+      >
+        公开
+      </el-checkbox>
+      <el-button
+        style="width: 20%;margin-top: 10px;"
+        @click="saveMarkdownText()"
+      >
+        保 存
+      </el-button>
+    </div>
+  </div>
+</template>
+
+<script>
+
+    import Vditor from "vditor";
+    import {getArticleDetail, saveArticle} from '@/api/app'
+
+    export default {
+        name: "Editer",
+        components: {},
+        data() {
+            return {
+                editor: null,
+                to: {},
+                checked: true,
+            };
+        },
+        methods: {
+            initEditor() {
+                window.vditor = new Vditor("vditor", {
+                    debugger: false,
+                    typewriterMode: false,
+                    placeholder: "placeholder",
+                    counter: 100,
+                    height: 550,
+                    cache: {
+                        enable: false,
+                    }
+                });
+            },
+            saveMarkdownText() {
+                this.editor = window?.vditor;
+                console.log(this.editor.getValue());
+
+                let params = {
+                    "id": this.to.id,
+                    "name": this.to.name,
+                    "content": encodeURIComponent(this.editor.getValue()),
+                    "isPublic": this.checked ? 1 : 0,
+                }
+
+                saveArticle(params).then(res => {
+                    console.log(res)
+                    if (res.code === 200) {
+                        this.$message({
+                            message: '保存成功',
+                            type: 'success'
+                        });
+                        setTimeout(this.reloadData, 1000);
+                    }
+                }).catch(res => {
+                    this.$message.error('请求失败');
+                    console.log("请求失败");
+                    console.log(res);
+                });
+            },
+            getData() {
+                let id = this.$route.params.id;
+                if (id !== undefined) {
+                    getArticleDetail({id: id}).then(res => {
+                        console.log(res)
+                        if (res.code === 200) {
+                            this.to = res.article;
+                            this.checked = this.to.isPublic === 1;
+                            setTimeout(this.setData, 500);
+                        }
+                    }).catch(res => {
+                        this.$message.error('请求失败');
+                        console.log("请求失败");
+                        console.log(res);
+                    });
+                }
+            },
+            setData() {
+                this.editor = window?.vditor;
+                this.editor.setValue(this.to.content);
+            },
+            reloadData() {
+                location.reload();
+            },
+        },
+        mounted() {
+            this.initEditor();
+            this.getData();
+        }
+    };
+</script>
+
+<style scoped>
+    #editer {
+        font-family: Avenir, Helvetica, Arial, sans-serif;
+        -webkit-font-smoothing: antialiased;
+        -moz-osx-font-smoothing: grayscale;
+        margin-top: 20px;
+    }
+</style>
