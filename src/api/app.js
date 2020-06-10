@@ -14,6 +14,13 @@ export function getPublicArticleList(params) {
     params
   })
 }
+export function getPublicArticleListByTag(params) {
+  return request({
+    url: '/article/getPublicListByTag',
+    method: 'get',
+    params
+  })
+}
 export function getArticleDetail(params) {
     return request({
         url: '/article/getDetail',
@@ -34,6 +41,14 @@ export function saveArticle(params) {
     return request({
         url: '/article/save',
         method: 'post',
+        params
+    })
+}
+
+export function getTagList(params) {
+    return request({
+        url: '/tag/getTagList',
+        method: 'get',
         params
     })
 }

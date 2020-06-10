@@ -73,7 +73,7 @@
     }
 
     .content {
-        min-height: calc(100vh - 60px - 33px);
+        min-height: calc(100vh - 60px - 66px);
         margin-top: 20px;
     }
 

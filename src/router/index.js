@@ -44,6 +44,11 @@ const routes = [
         component: () => import(/* webpackChunkName: "about" */ '../views/Article.vue')
     },
     {
+        path: '/tag/:tid',
+        name: 'articleByTag',
+        component: () => import(/* webpackChunkName: "about" */ '../views/ArticleByTag.vue')
+    },
+    {
         path: '/manager/editer/:id',
         name: 'editer',
         component: () => import(/* webpackChunkName: "about" */ '../views/manager/Editer.vue')
