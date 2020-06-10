@@ -1,10 +1,8 @@
 <template>
-  <div>
-    <div
-      class="tag"
-    >
+  <div class="tag">
+    <div class="content">
       <a
-        class="p"
+        class="tag-a"
         v-for="(t, index) in tags"
         :key="index"
         :style="t.style"
@@ -13,14 +11,17 @@
         #{{ t.name }}
       </a>
     </div>
+    <Footer />
   </div>
 </template>
 
 <script>
+    import Footer from "../components/Footer";
     import {getTagList} from '@/api/app'
 
     export default {
         name: "MTag",
+        components: {Footer},
         data() {
             return {
                 tags: []
@@ -47,16 +48,23 @@
     }
 </script>
 
-<style scoped>
+<style>
+
   .tag {
     width: 66%;
-    margin-left: 17%;
-    margin-top: 5%;
-    height: 60%;
+    text-align: left;
+    position: absolute;
+    left: 50%;
+    transform: translate(-50%, 0);
   }
-  .p {
+  .content {
+    min-height: calc(100vh - 60px - 66px);
+    margin-top: 20px;
+  }
+  .tag-a {
     margin-left: 33px;
     margin-top: 22px;
     display:inline-block;
   }
+
 </style>

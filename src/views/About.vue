@@ -25,4 +25,8 @@
         left: 50%;
         transform: translate(-50%, 0);
     }
+    .content {
+      min-height: calc(100vh - 60px - 66px);
+      margin-top: 20px;
+    }
 </style>
