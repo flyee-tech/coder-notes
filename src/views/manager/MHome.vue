@@ -1,9 +1,20 @@
 <template>
   <div class="mhome">
+    <div
+      style="width: 100%; margin-top: 22px"
+    >
+      <el-input
+        style="width: 30%"
+      />
+      <el-button style="width: 10%; margin-left: 2px">
+        搜索
+      </el-button>
+    </div>
+
     <el-table
       :data="list"
       border
-      style="width: 100%; margin-top: 22px"
+      style="width: 100%; margin-top: 5px"
     >
       <el-table-column
         prop="createdTime"
@@ -103,14 +114,14 @@
                 console.log(row);
                 window.location.href = '/article/' + row.id
             },
-            edit(row){
+            edit(row) {
                 console.log(row);
                 window.location.href = '/manager/editer/' + row.id
             },
-            isPublicFormater(row){
+            isPublicFormater(row) {
                 return row.isPublic === 1 ? '是' : '否';
             },
-            typeFormater(row){
+            typeFormater(row) {
                 if (row.type === 1) {
                     return '文章';
                 }

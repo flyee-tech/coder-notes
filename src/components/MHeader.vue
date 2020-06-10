@@ -6,7 +6,10 @@
     >
       首页
     </el-button>
-    <el-button style="width: 10%">
+    <el-button
+      style="width: 10%"
+      @click="tag"
+    >
       标签
     </el-button>
     <el-button
@@ -34,6 +37,9 @@
             home() {
                 window.location.href = '/manager/home'
 
+            },
+            tag() {
+                window.location.href = '/manager/tag'
             },
         }
     }
