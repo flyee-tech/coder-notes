@@ -6,7 +6,7 @@
         v-for="(t, index) in tags"
         :key="index"
         :style="t.style"
-        :href="'/tag/'+t.id"
+        :href="'/tag/'+t.id+'?tname='+t.name"
       >
         #{{ t.name }}
       </a>

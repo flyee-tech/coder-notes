@@ -15,6 +15,8 @@
       :data="list"
       border
       style="width: 100%; margin-top: 5px"
+      @row-click="clickRow"
+      :row-style="{cursor: 'pointer',backgroundColor: 'beige'}"
     >
       <el-table-column
         prop="createdTime"
@@ -48,13 +50,6 @@
         width="200"
       >
         <template slot-scope="scope">
-          <el-button
-            @click="handleClick(scope.row)"
-            type="text"
-            size="small"
-          >
-            查看
-          </el-button>
           <el-button
             @click="edit(scope.row)"
             type="text"
@@ -110,10 +105,6 @@
                     console.log(res);
                 })
             },
-            handleClick(row) {
-                console.log(row);
-                window.location.href = '/article/' + row.id
-            },
             edit(row) {
                 console.log(row);
                 window.location.href = '/manager/editer/' + row.id
@@ -132,6 +123,13 @@
                     return '脑图';
                 }
             },
+            clickRow(row, column, event) {
+                console.log(row);
+                console.log(column);
+                console.log(event);
+                console.log(row);
+                window.location.href = '/article/' + row.id
+            }
         },
 
         data() {
@@ -143,6 +141,10 @@
     }
 </script>
 
-<style scoped>
-
+<style scoped lang="scss">
+    /*.el-table__body {*/
+        /*tbody tr {*/
+            /*cursor: pointer;*/
+        /*}*/
+    /*}*/
 </style>

@@ -1,6 +1,7 @@
 <template>
   <div class="home">
     <div class="content">
+      <a style="margin-left: 20px;font-size: 40px;border-bottom:2px solid #d3d3d3"> # {{ tagName }} 👇👇👇 </a>
       <Item
         v-for="i in list"
         :key="i.id"
@@ -34,6 +35,7 @@
         },
         data() {
             return {
+                tagName: this.$route.query.tname,
                 count: 1,
                 pn: 1,
                 list: []
@@ -74,7 +76,7 @@
     }
 
     .content {
-        min-height: calc(100vh - 60px - 88px);
+        min-height: calc(100vh - 60px - 44px);
     }
 
     .el-pager li.number {

@@ -27,6 +27,7 @@
       <a
         class="a"
         @click="go_github"
+        style="cursor:pointer"
       >
         <u>开源</u>
       </a>

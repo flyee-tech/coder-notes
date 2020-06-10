@@ -37,7 +37,7 @@
     };
 </script>
 
-<style>
+<style lang="scss">
     .app {
         background-color: beige;
     }
