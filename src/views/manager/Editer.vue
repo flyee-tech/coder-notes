@@ -1,11 +1,11 @@
 <template>
   <div id="editer">
-    <el-input
-      style="width: 50%;"
+    标题：<el-input
+      style="width: 40%;"
       v-model="to.name"
     />
-    <el-input
-      style="width: 50%;"
+    标签：<el-input
+      style="width: 40%;"
       v-model="tags"
     />
     <div

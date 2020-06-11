@@ -10,7 +10,7 @@
       style="width: 10%"
       @click="tag"
     >
-      标签
+      查看标签
     </el-button>
     <el-button
       style="width: 10%"
@@ -20,6 +20,12 @@
     </el-button>
     <el-button style="width: 10%">
       新建脑图
+    </el-button>
+    <el-button
+      style="width: 10%"
+      @click="goBlog"
+    >
+      查看博客
     </el-button>
   </div>
 </template>
@@ -40,6 +46,9 @@
             },
             tag() {
                 window.location.href = '/manager/tag'
+            },
+            goBlog() {
+                window.location.href = '/'
             },
         }
     }

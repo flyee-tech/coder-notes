@@ -38,7 +38,7 @@
         </a>
 
         <p style="color: gray;float:right;margin-right: 10px">
-          {{ to.createdTime.substr(0, 16).replace("T", " ") }}
+          {{ to.createdTime }}
         </p>
       </div>
       <div v-html="compiledMarkdown" />
@@ -72,6 +72,7 @@
                     console.log(res)
                     if (res.code === 200) {
                         this.to = res.article
+                        this.to.createdTime = this.to.createdTime.substr(0, 16).replace("T", " ")
                         this.tags = res.tags
                     }
                 }).catch(res => {
