@@ -8,6 +8,10 @@
       style="width: 40%;"
       v-model="tags"
     />
+    <a
+      style="margin-left: 10px"
+      :href="'/manager/article/'+this.$route.params.id"
+    >预 览</a>
     <div
       style="margin-top: 5px"
       id="vditor"

@@ -58,7 +58,8 @@
         pedantic: false,
         sanitize: false,
         smartLists: true,
-        smartypants: false
+        smartypants: false,
+        highlight: (code) => require('highlight.js').highlightAuto(code).value
     })
     export default {
         components: {},
@@ -109,7 +110,10 @@
         },
         computed: {
             compiledMarkdown: function () {
-                return marked(this.to.content, {sanitize: true})
+                return marked(this.to.content, {
+                    sanitize: true,
+                    highlight: (code) => require('highlight.js').highlightAuto(code).value
+                })
             }
         }
 
@@ -139,4 +143,15 @@
         font-size: 18px;
         /*border-bottom: 2px solid #d3d3d3;*/
     }
+
+    pre {
+        background-color: #FEF9E7;
+        border-radius: 5px;
+        padding:10px;
+        overflow: auto;
+    }
+    code {
+        font-size: 16px;
+    }
+
 </style>
