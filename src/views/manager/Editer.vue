@@ -10,7 +10,12 @@
     />
     <div style="text-align: right">
       <el-checkbox
-        style="width: 10%;margin-right: 30px;"
+        v-model="blog_checked"
+      >
+        博客文章
+      </el-checkbox>
+      <el-checkbox
+        style="margin-right: 30px;"
         v-model="checked"
       >
         公开
@@ -38,6 +43,7 @@
                 editor: null,
                 to: {},
                 checked: true,
+                blog_checked: false,
             };
         },
         methods: {
@@ -62,6 +68,7 @@
                     "name": this.to.name,
                     "content": encodeURIComponent(this.editor.getValue()),
                     "isPublic": this.checked ? 1 : 0,
+                    "type": this.blog_checked ? 1 : 2,
                 }
 
                 saveArticle(params).then(res => {
@@ -87,6 +94,7 @@
                         if (res.code === 200) {
                             this.to = res.article;
                             this.checked = this.to.isPublic === 1;
+                            this.blog_checked = this.to.type === 1;
                             setTimeout(this.setData, 500);
                         }
                     }).catch(res => {

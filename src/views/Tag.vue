@@ -29,7 +29,7 @@
         },
         methods: {
             getData() {
-                getTagList().then(res => {
+                getTagList({idx: 1}).then(res => {
                     console.log(res)
                     if (res.code === 200) {
                         this.tags = res.list;

@@ -2,15 +2,15 @@
   <div class="article">
     <div style="margin-top:5px;margin-right:120px;float: right">
       <el-button
-        plain="true"
-        round="true"
+        plain
+        round
         type="primary"
         icon="el-icon-edit"
         @click="editArticle"
       />
       <el-button
-        plain="true"
-        round="true"
+        plain
+        round
         style="margin-left: 10px"
         type="danger"
         icon="el-icon-delete"
@@ -22,7 +22,10 @@
         content"
     >
       <a class="title">
-        {{ title }}
+        {{ to.name }}
+      </a>
+      <a>
+        {{ to.createdTime.substr(0, 16).replace("T", " ") }}
       </a>
       <div v-html="compiledMarkdown" />
     </div>
@@ -32,7 +35,7 @@
     import marked from 'marked'
     import {getArticleDetail, delArticle} from '@/api/app'
 
-    let rendererMD = new marked.Renderer();
+    let rendererMD = new marked.Renderer('');
     marked.setOptions({
         renderer: rendererMD,
         gfm: true,
@@ -54,8 +57,7 @@
                 getArticleDetail({id: this.$route.params.id}).then(res => {
                     console.log(res)
                     if (res.code === 200) {
-                        this.input = res.article.content;
-                        this.title = res.article.name;
+                        this.to = res.article
                     }
                 }).catch(res => {
                     console.log("请求失败");
@@ -77,19 +79,20 @@
                     console.log(res);
                 })
             },
-            goHome(){
+            goHome() {
                 window.location.href = '/manager';
             }
         },
         data() {
             return {
-                input: '',
-                title: 'aaaa'
+                to: {
+                    content: ''
+                }
             }
         },
         computed: {
             compiledMarkdown: function () {
-                return marked(this.input, {sanitize: true})
+                return marked(this.to.content, {sanitize: true})
             }
         }
 

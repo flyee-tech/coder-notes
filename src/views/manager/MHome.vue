@@ -24,7 +24,8 @@
       <el-table-column
         prop="createdTime"
         label="日期"
-        width="100"
+        width="200"
+        :formatter="timeFormater"
       />
       <el-table-column
         prop="name"
@@ -87,6 +88,10 @@
                 if (row.type === 3) {
                     return '脑图';
                 }
+            },
+            timeFormater(row){
+                let time = row.createdTime;
+                return time.substr(0, 16).replace("T", " ");
             },
             clickRow(row, column, event) {
                 console.log(row);

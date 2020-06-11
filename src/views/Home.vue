@@ -9,6 +9,7 @@
         :content="i.content"
       />
       <el-pagination
+        v-if="count > 10"
         style="margin-top: 66px"
         :page-size="10"
         :pager-count="11"
@@ -74,7 +75,7 @@
     }
 
     .content {
-        min-height: calc(100vh - 60px - 88px);
+        min-height: calc(100vh - 60px - 66px);
     }
 
     .el-pager li.number {
