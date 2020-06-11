@@ -24,6 +24,16 @@ const routes = [
         component: () => import(/* webpackChunkName: "about" */ '../views/Tag.vue')
     },
     {
+        path: '/article/:id',
+        name: 'article',
+        component: () => import(/* webpackChunkName: "about" */ '../views/Article.vue')
+    },
+    {
+        path: '/tag/:tid',
+        name: 'articleByTag',
+        component: () => import(/* webpackChunkName: "about" */ '../views/ArticleByTag.vue')
+    },
+    {
         path: '/manager',
         name: 'MHome',
         component: () => import(/* webpackChunkName: "about" */ '../views/manager/MHome.vue')
@@ -39,16 +49,6 @@ const routes = [
         component: () => import(/* webpackChunkName: "about" */ '../views/manager/MTag.vue')
     },
     {
-        path: '/article/:id',
-        name: 'article',
-        component: () => import(/* webpackChunkName: "about" */ '../views/Article.vue')
-    },
-    {
-        path: '/tag/:tid',
-        name: 'articleByTag',
-        component: () => import(/* webpackChunkName: "about" */ '../views/ArticleByTag.vue')
-    },
-    {
         path: '/manager/editer/:id',
         name: 'editer',
         component: () => import(/* webpackChunkName: "about" */ '../views/manager/Editer.vue')
@@ -57,7 +57,17 @@ const routes = [
         path: '/manager/editer',
         name: 'editer',
         component: () => import(/* webpackChunkName: "about" */ '../views/manager/Editer.vue')
-    }
+    },
+    {
+        path: '/manager/article/:id',
+        name: 'article',
+        component: () => import(/* webpackChunkName: "about" */ '../views/manager/MArticle.vue')
+    },
+    {
+        path: '/manager/tag/:tid',
+        name: 'articleByTag',
+        component: () => import(/* webpackChunkName: "about" */ '../views/manager/MArticleByTag.vue')
+    },
 ]
 
 const router = new VueRouter({

@@ -17,6 +17,7 @@
       style="width: 100%; margin-top: 5px"
       @row-click="clickRow"
       :row-style="{cursor: 'pointer',backgroundColor: 'beige'}"
+      :header-cell-style="{backgroundColor: 'beige'}"
     >
       <el-table-column
         prop="createdTime"
@@ -128,7 +129,7 @@
                 console.log(column);
                 console.log(event);
                 console.log(row);
-                window.location.href = '/article/' + row.id
+                window.location.href = '/manager/article/' + row.id
             }
         },
 
@@ -142,9 +143,13 @@
 </script>
 
 <style scoped lang="scss">
-    /*.el-table__body {*/
-        /*tbody tr {*/
-            /*cursor: pointer;*/
-        /*}*/
-    /*}*/
+    .has-gutter {
+        tbody tr {
+            background-color: red;
+            cursor: pointer;
+        }
+    }
+    .has-gutter tr.th.el-table_1_column_1 {
+        background-color: beige;
+    }
 </style>

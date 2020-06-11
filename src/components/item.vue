@@ -36,7 +36,11 @@
             go_article() {
                 console.log('test')
                 console.log(this.aId)
-                window.location.href = '/article/' + this.aId
+                if (this.$route.path.indexOf('manager') === -1) {
+                    window.location.href = '/article/' + this.aId;
+                } else {
+                    window.location.href = '/manager/article/' + this.aId;
+                }
             }
         }
     }
