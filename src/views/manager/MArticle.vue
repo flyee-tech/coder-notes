@@ -21,12 +21,26 @@
       class="
         content"
     >
-      <a class="title">
+      <a class="m-title">
         {{ to.name }}
       </a>
-      <a>
-        {{ to.createdTime.substr(0, 16).replace("T", " ") }}
-      </a>
+
+      <div style="height: 33px;margin-top: 10px;border-bottom:1px solid #d3d3d3;">
+        <!--<a class="a-tag"># Java</a>-->
+
+        <a
+          class="a-tag"
+          v-for="(t, index) in tags"
+          :key="index"
+          :href="'/manager/tag/'+t.id+'?tname='+t.name"
+        >
+          # {{ t.name }}
+        </a>
+
+        <p style="color: gray;float:right;margin-right: 10px">
+          {{ to.createdTime.substr(0, 16).replace("T", " ") }}
+        </p>
+      </div>
       <div v-html="compiledMarkdown" />
     </div>
   </div>
@@ -58,6 +72,7 @@
                     console.log(res)
                     if (res.code === 200) {
                         this.to = res.article
+                        this.tags = res.tags
                     }
                 }).catch(res => {
                     console.log("请求失败");
@@ -87,7 +102,8 @@
             return {
                 to: {
                     content: ''
-                }
+                },
+                tags: [],
             }
         },
         computed: {
@@ -113,8 +129,13 @@
         margin-top: 20px;
     }
 
-    .title {
-        border-bottom: 1px solid #d3d3d3;
+    .m-title {
         font-size: 40px;
+    }
+
+    .a-tag {
+        margin-left: 10px;
+        font-size: 18px;
+        /*border-bottom: 2px solid #d3d3d3;*/
     }
 </style>

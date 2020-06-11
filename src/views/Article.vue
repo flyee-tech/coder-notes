@@ -1,9 +1,23 @@
 <template>
   <div class="article">
     <div class="content">
-      <a class="title">
-        {{ title }}
+      <a class="a-title">
+        {{ to.name }}
       </a>
+      <div style="height: 33px;margin-top: 10px;border-bottom:1px solid #d3d3d3;">
+        <a
+          class="a-tag"
+          v-for="(t, index) in tags"
+          :key="index"
+          :href="'/tag/'+t.id+'?tname='+t.name"
+        >
+          # {{ t.name }}
+        </a>
+
+        <p style="color: gray;float:right;margin-right: 10px">
+          {{ to.createdTime.substr(0, 16).replace("T", " ") }}
+        </p>
+      </div>
       <div v-html="compiledMarkdown" />
     </div>
     <Footer />
@@ -38,8 +52,8 @@
                 getArticleDetail({id: this.$route.params.id}).then(res => {
                     console.log(res)
                     if (res.code === 200) {
-                        this.input = res.article.content;
-                        this.title = res.article.name;
+                        this.to = res.article;
+                        this.tags = res.tags
                     }
                 }).catch(res => {
                     console.log("请求失败");
@@ -49,13 +63,15 @@
         },
         data() {
             return {
-                input: '',
-                title: 'aaaa'
+                to: {
+                    content: ''
+                },
+                tags: [],
             }
         },
         computed: {
             compiledMarkdown: function () {
-                return marked(this.input, {sanitize: true})
+                return marked(this.to.content, {sanitize: true})
             }
         }
 
@@ -77,8 +93,14 @@
         margin-top: 20px;
     }
 
-    .title {
-        border-bottom: 1px solid #d3d3d3;
+    .a-title {
+        /*border-bottom: 1px solid #d3d3d3;*/
         font-size: 40px;
+    }
+
+    .a-tag {
+      margin-left: 10px;
+      font-size: 18px;
+      /*border-bottom: 2px solid #d3d3d3;*/
     }
 </style>
