@@ -46,6 +46,7 @@
       <el-table-column
         prop="content"
         label="内容"
+        :formatter="contentFormater"
       />
       <el-table-column
         prop="type"
@@ -107,6 +108,9 @@
             timeFormater(row) {
                 let time = row.createdTime;
                 return time.substr(0, 16).replace("T", " ");
+            },
+            contentFormater(row) {
+                return row.content.substr(0, 50);
             },
             clickRow(row, column, event) {
                 console.log(row);
