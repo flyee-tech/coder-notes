@@ -56,6 +56,7 @@
 
     .title {
         border-bottom: 1px solid #d3d3d3;
+        cursor:pointer
     }
 
 </style>
