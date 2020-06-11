@@ -1,6 +1,6 @@
 <template>
   <div class="article">
-    <div style="margin-top:5px;margin-right:120px;float: right">
+    <div style="margin-top:5px;margin-right:10px;float: right">
       <el-button
         plain
         round
