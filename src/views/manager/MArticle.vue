@@ -1,6 +1,26 @@
 <template>
   <div class="article">
-    <div class="content">
+    <div style="margin-top:5px;margin-right:120px;float: right">
+      <el-button
+        plain="true"
+        round="true"
+        type="primary"
+        icon="el-icon-edit"
+        @click="editArticle"
+      />
+      <el-button
+        plain="true"
+        round="true"
+        style="margin-left: 10px"
+        type="danger"
+        icon="el-icon-delete"
+        @click="deleteArticle"
+      />
+    </div>
+    <div
+      class="
+        content"
+    >
       <a class="title">
         {{ title }}
       </a>
@@ -10,7 +30,7 @@
 </template>
 <script>
     import marked from 'marked'
-    import {getArticleDetail} from '@/api/app'
+    import {getArticleDetail, delArticle} from '@/api/app'
 
     let rendererMD = new marked.Renderer();
     marked.setOptions({
@@ -24,8 +44,7 @@
         smartypants: false
     })
     export default {
-        components: {
-        },
+        components: {},
         mounted() {
             console.log(this.$route.params.id);
             this.getData();
@@ -42,6 +61,24 @@
                     console.log("请求失败");
                     console.log(res);
                 })
+            },
+            editArticle() {
+                window.location.href = '/manager/editer/' + this.$route.params.id
+            },
+            deleteArticle() {
+                delArticle({"id": this.$route.params.id}).then(res => {
+                    this.$message({
+                        message: res.msg,
+                        type: 'success'
+                    });
+                    setTimeout(this.goHome, 1000);
+                }).catch(res => {
+                    console.log("请求失败");
+                    console.log(res);
+                })
+            },
+            goHome(){
+                window.location.href = '/manager';
             }
         },
         data() {
