@@ -14,9 +14,9 @@ export function getPublicArticleList(params) {
     params
   })
 }
-export function getPublicArticleListByTag(params) {
+export function getArticleListByTag(params) {
   return request({
-    url: '/article/getPublicListByTag',
+    url: '/article/getListByTag',
     method: 'get',
     params
   })

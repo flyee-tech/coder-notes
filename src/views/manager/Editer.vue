@@ -4,6 +4,10 @@
       style="width: 50%;"
       v-model="to.name"
     />
+    <el-input
+      style="width: 50%;"
+      v-model="tags"
+    />
     <div
       style="margin-top: 5px"
       id="vditor"
@@ -44,6 +48,7 @@
                 to: {},
                 checked: true,
                 blog_checked: false,
+                tags: '',
             };
         },
         methods: {
@@ -69,6 +74,7 @@
                     "content": encodeURIComponent(this.editor.getValue()),
                     "isPublic": this.checked ? 1 : 0,
                     "type": this.blog_checked ? 1 : 2,
+                    "tags": this.tags
                 }
 
                 saveArticle(params).then(res => {
@@ -93,6 +99,9 @@
                         console.log(res)
                         if (res.code === 200) {
                             this.to = res.article;
+                            if (res.tags !== undefined) {
+                                this.tags = this.decoderTags(res.tags);
+                            }
                             this.checked = this.to.isPublic === 1;
                             this.blog_checked = this.to.type === 1;
                             setTimeout(this.setData, 500);
@@ -111,6 +120,13 @@
             reloadData(id) {
                 window.location.href = '/manager/editer/' + id
             },
+            decoderTags(tags) {
+                let ts = ''
+                tags.forEach(function (t) {
+                    ts += '#' + t.name + ' '
+                })
+                return ts;
+            }
         },
         mounted() {
             this.initEditor();

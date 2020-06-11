@@ -10,6 +10,7 @@
         :content="i.content"
       />
       <el-pagination
+        v-if="count > 10"
         style="margin-top: 66px"
         :page-size="10"
         :pager-count="11"
@@ -26,7 +27,7 @@
 <script>
     import Item from "../components/item";
     import Footer from "../components/Footer";
-    import {getPublicArticleListByTag} from '@/api/app'
+    import {getArticleListByTag} from '@/api/app'
 
     export default {
         name: "ArticleByTag",
@@ -46,7 +47,7 @@
         },
         methods: {
             getData() {
-                getPublicArticleListByTag({"pn": this.pn,"tid": this.$route.params.tid}).then(res => {
+                getArticleListByTag({"pn": this.pn,"tid": this.$route.params.tid, idx: 1}).then(res => {
                     console.log(res)
                     if (res.code === 200) {
                         this.list = res.list;
