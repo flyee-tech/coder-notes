@@ -4,16 +4,27 @@
       style="width: 100%; margin-top: 22px"
     >
       <el-input
+        id="search-input"
         style="width: 30%"
+        v-model="keyWords"
+        @keyup.enter.native="search"
       />
       <el-button
         icon="el-icon-search"
         style="margin-left: 2px"
-      >
-      </el-button>
+        @click="search"
+      />
     </div>
 
+    <p
+      style="text-align: center;font-size: 20px;margin-top: 88px"
+      v-if="this.list.length === 0"
+    >
+      无搜索结果
+    </p>
+
     <el-table
+      v-if="this.list.length !== 0"
       :data="list"
       border
       style="width: 100%; margin-top: 5px"
@@ -61,8 +72,12 @@
             this.getData();
         },
         methods: {
-            getData() {
-                getArticleList().then(res => {
+            getData(k) {
+                let params = {}
+                if (k !== undefined) {
+                    params = {"k": k}
+                }
+                getArticleList(params).then(res => {
                     console.log(res)
                     if (res.code === 200) {
                         this.list = res.list;
@@ -70,7 +85,7 @@
                 }).catch(res => {
                     console.log("请求失败");
                     console.log(res);
-                })
+                });
             },
             reloadData() {
                 location.reload();
@@ -89,7 +104,7 @@
                     return '脑图';
                 }
             },
-            timeFormater(row){
+            timeFormater(row) {
                 let time = row.createdTime;
                 return time.substr(0, 16).replace("T", " ");
             },
@@ -99,12 +114,19 @@
                 console.log(event);
                 console.log(row);
                 window.location.href = '/manager/article/' + row.id
+            },
+            search(event) {
+                console.log(event)
+                console.log(this.keyWords)
+                this.getData(this.keyWords)
+                document.getElementById("search-input").blur();
             }
         },
 
         data() {
             return {
-                list: []
+                list: [],
+                keyWords: '',
             }
         },
 
@@ -118,6 +140,7 @@
             cursor: pointer;
         }
     }
+
     .has-gutter tr.th.el-table_1_column_1 {
         background-color: beige;
     }

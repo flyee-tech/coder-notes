@@ -46,7 +46,7 @@
             return {
                 editor: null,
                 to: {},
-                checked: true,
+                checked: false,
                 blog_checked: false,
                 tags: '',
             };
