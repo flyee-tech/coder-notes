@@ -153,5 +153,8 @@
     code {
         font-size: 16px;
     }
+    img {
+        width: 100%;
+    }
 
 </style>
