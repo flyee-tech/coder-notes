@@ -41,7 +41,10 @@
           {{ to.createdTime }}
         </p>
       </div>
-      <div v-html="compiledMarkdown" />
+      <div
+        style="margin-top: 10px"
+        v-html="compiledMarkdown"
+      />
     </div>
   </div>
 </template>
@@ -179,6 +182,10 @@
         p {
             padding-left: 10px;
         }
+    }
+
+    p {
+      white-space: pre-wrap;
     }
 
 </style>
