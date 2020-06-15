@@ -117,7 +117,8 @@
                 console.log(column);
                 console.log(event);
                 console.log(row);
-                window.location.href = '/manager/article/' + row.id
+                // window.location.href = '/manager/article/' + row.id
+                window.open('/manager/article/' + row.id, '_blank') // 新窗口打开外链接
             },
             search(event) {
                 console.log(event)
