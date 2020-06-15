@@ -41,7 +41,7 @@ export function saveArticle(params) {
     return request({
         url: '/article/save',
         method: 'post',
-        params
+        data: params
     })
 }
 
