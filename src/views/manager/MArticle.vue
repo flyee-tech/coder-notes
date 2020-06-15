@@ -120,7 +120,7 @@
     }
 </script>
 
-<style>
+<style lang="scss">
     .article {
         background-color: beige;
         width: 66%;
@@ -147,14 +147,36 @@
     pre {
         background-color: #FEF9E7;
         border-radius: 5px;
-        padding:10px;
+        padding: 10px;
         overflow: auto;
     }
+
     code {
         font-size: 16px;
     }
+
     img {
         width: 100%;
+    }
+
+    table, table tr th, table tr td {
+        border: 1px solid #d3d3d3;
+    }
+
+    table {
+        text-align: center;
+        border-collapse: collapse;
+    }
+
+    th {
+        padding: 5px 10px;
+    }
+
+    blockquote {
+        border-left: 5px solid #d3d3d3;
+        p {
+            padding-left: 10px;
+        }
     }
 
 </style>
