@@ -156,7 +156,8 @@
     }
 
     img {
-        width: 100%;
+        max-width: 100%;
+        height: auto;
     }
 
     table, table tr th, table tr td {
