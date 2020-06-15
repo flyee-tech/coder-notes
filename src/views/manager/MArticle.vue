@@ -174,6 +174,7 @@
 
     blockquote {
         border-left: 5px solid #d3d3d3;
+        margin-left: 10px;
         p {
             padding-left: 10px;
         }
