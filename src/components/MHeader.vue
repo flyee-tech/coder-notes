@@ -38,7 +38,8 @@
         },
         methods: {
             newMD() {
-                window.location.href = '/manager/editer'
+                // window.location.href = '/manager/editer'
+                window.open('/manager/editer', '_blank') // 新窗口打开外链接
             },
             home() {
                 window.location.href = '/manager/home'

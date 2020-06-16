@@ -25,7 +25,9 @@
             }
         },
         mounted() {
-            if (window.location.href.indexOf('manager') !== -1) {
+            if (window.location.href.indexOf('manager/article') !== -1 || window.location.href.indexOf('editer') !== -1) {
+                this.is_public = 3;
+            }else if (window.location.href.indexOf('manager') !== -1) {
                 this.is_public = 2;
             } else {
                 this.is_public = 1;
