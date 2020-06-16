@@ -37,9 +37,9 @@
                 console.log('test')
                 console.log(this.aId)
                 if (this.$route.path.indexOf('manager') === -1) {
-                    window.open('/article/' + this.aId, '_blank') // 新窗口打开外链接
+                    window.location.href = '/article/' + this.aId;
                 } else {
-                    window.location.href = '/manager/article/' + this.aId;
+                    window.open('/manager/article/' + this.aId, '_blank') // 新窗口打开外链接
                 }
             }
         }
