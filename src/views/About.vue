@@ -17,7 +17,7 @@
 </script>
 
 
-<style>
+<style scoped>
     .about {
         width: 66%;
         text-align: left;
