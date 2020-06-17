@@ -64,7 +64,7 @@
     };
 </script>
 
-<style scoped>
+<style>
     .home {
         background-color: beige;
         width: 66%;

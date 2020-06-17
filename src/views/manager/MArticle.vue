@@ -42,6 +42,7 @@
         </p>
       </div>
       <div
+        class="md"
         style="margin-top: 10px"
         v-html="compiledMarkdown"
       />
@@ -147,36 +148,37 @@
         /*border-bottom: 2px solid #d3d3d3;*/
     }
 
-    pre {
+    .md /deep/ pre {
         background-color: #FEF9E7;
         border-radius: 5px;
         padding: 10px;
         overflow: auto;
     }
 
-    code {
+
+    .md /deep/ code {
         font-size: 16px;
     }
 
-    img {
+    .md /deep/ img {
         max-width: 100%;
         height: auto;
     }
 
-    table, table tr th, table tr td {
+    .md /deep/ table, table tr th, table tr td {
         border: 1px solid #d3d3d3;
     }
 
-    table {
+    .md /deep/ table {
         text-align: center;
         border-collapse: collapse;
     }
 
-    th {
+    .md /deep/ th {
         padding: 5px 10px;
     }
 
-    blockquote {
+    .md /deep/ blockquote {
         border-left: 5px solid #d3d3d3;
         margin-left: 10px;
         p {
@@ -184,7 +186,7 @@
         }
     }
 
-    p {
+    .md /deep/ p {
       white-space: pre-wrap;
     }
 
