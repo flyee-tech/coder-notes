@@ -149,15 +149,25 @@
     }
 
     .md /deep/ pre {
-        background-color: #FEF9E7;
-        border-radius: 5px;
+        background-color: #f5f2f0;
+        /*border-radius: 5px;*/
         padding: 10px;
         overflow: auto;
+        border: .3em solid #e0dfcc;
+        border-radius: 1em;
+        code {
+            background-color: rgba(0, 0, 0, 0);
+        }
     }
 
-
     .md /deep/ code {
-        font-size: 16px;
+        display: inline-block;
+        padding-left: 5px;
+        padding-right: 5px;
+        font-size: 120%;
+        background-color: pink;
+        border-radius: 5px;
+        margin: auto 3px;
     }
 
     .md /deep/ img {
@@ -187,7 +197,7 @@
     }
 
     .md /deep/ p {
-      white-space: pre-wrap;
+        white-space: pre-wrap;
     }
 
 </style>
