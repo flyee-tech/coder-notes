@@ -29,8 +29,8 @@
       border
       style="width: 100%; margin-top: 5px"
       @row-click="clickRow"
-      :row-style="{cursor: 'pointer',backgroundColor: 'beige'}"
-      :header-cell-style="{backgroundColor: 'beige'}"
+      :row-style="{cursor: 'pointer',backgroundColor: '#FCFDF7'}"
+      :header-cell-style="{backgroundColor: '#FCFDF7'}"
     >
       <el-table-column
         prop="createdTime"
@@ -147,6 +147,6 @@
     }
 
     .has-gutter tr.th.el-table_1_column_1 {
-        background-color: beige;
+        background-color: #FCFDF7;
     }
 </style>

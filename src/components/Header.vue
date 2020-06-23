@@ -64,7 +64,7 @@
     width: 100%;
     /*background-color: #24292e;*/
     border-bottom: 1px solid #d3d3d3;
-    background-color: beige;
+    background-color: #FCFDF7;
   }
 
   .a {

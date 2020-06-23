@@ -18,7 +18,7 @@
         border-top: 1px solid #d3d3d3;
         text-align: center;
         height: 60px;
-        background-color: beige;
+        background-color: #FCFDF7;
     }
 
     .p {

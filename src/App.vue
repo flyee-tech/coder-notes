@@ -41,6 +41,6 @@
 
 <style scoped lang="scss">
     .app {
-        background-color: beige;
+        background-color: #FCFDF7;
     }
 </style>

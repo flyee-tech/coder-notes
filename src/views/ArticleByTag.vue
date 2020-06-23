@@ -68,7 +68,7 @@
 
 <style>
     .home {
-        background-color: beige;
+        background-color: #FCFDF7;
         width: 66%;
         text-align: left;
         position: absolute;
@@ -81,22 +81,22 @@
     }
 
     .el-pager li.number {
-        background-color: beige;
+        background-color: #FCFDF7;
     }
 
     .el-pager li.el-icon {
-        background-color: beige;
+        background-color: #FCFDF7;
     }
 
     .el-pager li.active {
-        background-color: beige;
+        background-color: #FCFDF7;
     }
 
     .el-pagination button.btn-prev {
-        background-color: beige !important;
+        background-color: #FCFDF7 !important;
     }
 
     .el-pagination button.btn-next {
-        background-color: beige !important;
+        background-color: #FCFDF7 !important;
     }
 </style>
