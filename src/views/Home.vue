@@ -67,7 +67,7 @@
 <style>
     .home {
         background-color: #FCFDF7;
-        width: 66%;
+        width: 50%;
         text-align: left;
         position: absolute;
         left: 50%;

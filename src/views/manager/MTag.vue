@@ -49,7 +49,7 @@
 
 <style scoped>
     .tag {
-        width: 66%;
+        width: 50%;
         margin-left: 17%;
         margin-top: 5%;
         height: 60%;

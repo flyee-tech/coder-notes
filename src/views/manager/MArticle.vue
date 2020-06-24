@@ -127,7 +127,7 @@
 <style scoped lang="scss">
     .article {
         background-color: #FCFDF7;
-        width: 66%;
+        width: 50%;
         text-align: left;
         position: absolute;
         left: 50%;
@@ -165,7 +165,7 @@
         padding-left: 5px;
         padding-right: 5px;
         font-size: 120%;
-        background-color: #f5f2f0;
+        background-color: #ECC9C6;
         border-radius: 5px;
         margin: auto 3px;
     }
