@@ -66,7 +66,7 @@
 
 <script>
 
-    import {getArticleList} from '@/api/app'
+    import {getArticleList, searchArticleList} from '@/api/app'
 
     export default {
         mounted() {
@@ -123,7 +123,18 @@
             search(event) {
                 console.log(event)
                 console.log(this.keyWords)
-                this.getData(this.keyWords)
+                // this.getData(this.keyWords)
+
+                searchArticleList({"kw":this.keyWords}).then(res => {
+                    console.log(res)
+                    if (res.code === 200) {
+                        this.list = res.list;
+                    }
+                }).catch(res => {
+                    console.log("请求失败");
+                    console.log(res);
+                });
+
                 document.getElementById("search-input").blur();
             }
         },

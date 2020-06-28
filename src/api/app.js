@@ -7,6 +7,13 @@ export function getArticleList(params) {
     params
   })
 }
+export function searchArticleList(params) {
+    return request({
+        url: '/article/searchList',
+        method: 'get',
+        params
+    })
+}
 export function getPublicArticleList(params) {
   return request({
     url: '/article/getPublicList',
