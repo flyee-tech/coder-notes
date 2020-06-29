@@ -42,12 +42,19 @@
         prop="name"
         label="标题"
         width="300"
-      />
+      >
+        <template slot-scope="scope">
+          <span v-html="scope.row.name" />
+        </template>
+      </el-table-column>
       <el-table-column
         prop="content"
         label="内容"
-        :formatter="contentFormater"
-      />
+      >
+        <template slot-scope="scope">
+          <span v-html="scope.row.content" />
+        </template>
+      </el-table-column>
       <el-table-column
         prop="type"
         label="类型"
@@ -109,9 +116,6 @@
                 let time = row.createdTime;
                 return time.substr(0, 16).replace("T", " ");
             },
-            contentFormater(row) {
-                return row.content.substr(0, 50);
-            },
             clickRow(row, column, event) {
                 console.log(row);
                 console.log(column);
@@ -125,7 +129,7 @@
                 console.log(this.keyWords)
                 // this.getData(this.keyWords)
 
-                searchArticleList({"kw":this.keyWords}).then(res => {
+                searchArticleList({"kw": this.keyWords}).then(res => {
                     console.log(res)
                     if (res.code === 200) {
                         this.list = res.list;
