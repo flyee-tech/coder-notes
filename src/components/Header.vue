@@ -31,12 +31,12 @@
       >
         <u>开源</u>
       </a>
-      <a
-        class="a"
-        href="/manager"
-      >
-        M
-      </a>
+      <!--<a-->
+      <!--class="a"-->
+      <!--href="/manager"-->
+      <!--&gt;-->
+      <!--M-->
+      <!--</a>-->
     </div>
   </div>
 </template>
