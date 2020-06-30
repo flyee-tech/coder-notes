@@ -136,6 +136,7 @@
 
     .content {
         margin-top: 20px;
+        margin-bottom: 50px;
     }
 
     .m-title {
