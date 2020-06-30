@@ -175,12 +175,20 @@
         height: auto;
     }
 
-    .md /deep/ table, table tr th, table tr td {
-        border: 1px solid #d3d3d3;
+    .md /deep/ table{
+        border: 2px solid #d3d3d3;
+        tr th {
+          border: 2px solid #d3d3d3;
+        }
+        td {
+          border: 2px solid #d3d3d3;
+          padding: 5px 1px 5px 10px;
+          letter-spacing:1px;
+        }
     }
 
     .md /deep/ table {
-        text-align: center;
+        text-align: left;
         border-collapse: collapse;
     }
 
@@ -193,11 +201,15 @@
         margin-left: 10px;
         p {
             padding-left: 10px;
+            line-height:30px;
+            letter-spacing:1px;
         }
     }
 
     .md /deep/ p {
         white-space: pre-wrap;
+        line-height:30px;
+        letter-spacing:1px;
     }
 
 </style>

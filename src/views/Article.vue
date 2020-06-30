@@ -111,25 +111,25 @@
     }
 
     .md /deep/ pre {
-      background-color: #f5f2f0;
-      /*border-radius: 5px;*/
-      padding: 10px;
-      overflow: auto;
-      border: .3em solid #e0dfcc;
-      border-radius: 1em;
-      code {
-        background-color: rgba(0, 0, 0, 0);
-      }
+        background-color: #f5f2f0;
+        /*border-radius: 5px;*/
+        padding: 10px;
+        overflow: auto;
+        border: .3em solid #e0dfcc;
+        border-radius: 1em;
+        code {
+            background-color: rgba(0, 0, 0, 0);
+        }
     }
 
     .md /deep/ code {
-      display: inline-block;
-      padding-left: 5px;
-      padding-right: 5px;
-      font-size: 120%;
-      background-color: #ECC9C6;
-      border-radius: 5px;
-      margin: auto 3px;
+        display: inline-block;
+        padding-left: 5px;
+        padding-right: 5px;
+        font-size: 120%;
+        background-color: #ECC9C6;
+        border-radius: 5px;
+        margin: auto 3px;
     }
 
     .md /deep/ img {
@@ -137,12 +137,20 @@
         height: auto;
     }
 
-    .md /deep/ table, table tr th, table tr td {
-        border: 1px solid #d3d3d3;
+    .md /deep/ table {
+        border: 2px solid #d3d3d3;
+        tr th {
+            border: 2px solid #d3d3d3;
+        }
+        td {
+            border: 2px solid #d3d3d3;
+            padding: 5px 1px 5px 10px;
+            letter-spacing: 1px;
+        }
     }
 
     .md /deep/ table {
-        text-align: center;
+        text-align: left;
         border-collapse: collapse;
     }
 
@@ -155,11 +163,16 @@
         margin-left: 10px;
         p {
             padding-left: 10px;
+            line-height: 30px;
+            letter-spacing: 1px;
         }
     }
 
     .md /deep/ p {
-      white-space: pre-wrap;
+        white-space: pre-wrap;
+        line-height: 30px;
+        letter-spacing: 1px;
     }
+
 
 </style>
