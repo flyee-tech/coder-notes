@@ -53,6 +53,7 @@
                 checked: false,
                 blog_checked: false,
                 tags: '',
+                curHeight: 550,
             };
         },
         methods: {
@@ -62,7 +63,7 @@
                     typewriterMode: false,
                     placeholder: "placeholder",
                     counter: 100,
-                    height: 550,
+                    height: this.curHeight,
                     cache: {
                         enable: false,
                     }
@@ -130,9 +131,17 @@
                     ts += '#' + t.name + ' '
                 })
                 return ts;
-            }
+            },
+            //获取屏幕高度
+            beforeMount(height) {
+                let h = document.documentElement.clientHeight || document.body.clientHeight;
+                console.log(this.curHeight)
+                this.curHeight =h - height; //减去页面上固定高度height
+                console.log(this.curHeight)
+            },
         },
         mounted() {
+            this.beforeMount(200);
             this.initEditor();
             this.getData();
         }
