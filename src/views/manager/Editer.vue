@@ -65,8 +65,12 @@
                     counter: 100,
                     height: this.curHeight,
                     cache: {
-                        enable: false,
-                    }
+                        enable: true,
+                        id: this.to.id
+                    },
+                    upload:{
+                        url: '',
+                    },
                 });
             },
             saveMarkdownText() {
