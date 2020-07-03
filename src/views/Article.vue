@@ -171,7 +171,31 @@
     .md /deep/ p {
         white-space: pre-wrap;
         line-height: 30px;
-        letter-spacing: 1px;
+        letter-spacing: 2px;
+    }
+
+    .md /deep/ li {
+        white-space: pre-wrap;
+        line-height: 30px;
+        letter-spacing: 2px;
+    }
+
+    .md /deep/ h2 {
+        white-space: pre-wrap;
+        line-height: 30px;
+        letter-spacing: 2px;
+    }
+
+    .md /deep/ h3 {
+        white-space: pre-wrap;
+        line-height: 30px;
+        letter-spacing: 2px;
+    }
+
+    .md /deep/ h4 {
+        white-space: pre-wrap;
+        line-height: 30px;
+        letter-spacing: 2px;
     }
 
 
