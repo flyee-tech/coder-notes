@@ -8,6 +8,7 @@
         style="width: 30%"
         v-model="keyWords"
         @keyup.enter.native="search"
+        ref="search_input"
       />
     </div>
 
@@ -125,7 +126,7 @@
                 console.log(this.keyWords)
                 // this.getData(this.keyWords)
 
-                searchArticleList({"kw": this.keyWords}).then(res => {
+                searchArticleList({"kw": this.keyWords.replace('/', '')}).then(res => {
                     console.log(res)
                     if (res.code === 200) {
                         this.list = res.list;
@@ -146,6 +147,17 @@
                 keyWords: '',
             }
         },
+
+        created() {
+            let that = this;
+            document.onkeydown = function () {
+                let key = window.event.keyCode;
+                if (key === 191) {
+                    that.$refs.search_input.focus();
+                    that.$refs.search_input.select();
+                }
+            };
+        }
 
     }
 </script>

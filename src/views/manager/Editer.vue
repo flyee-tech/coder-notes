@@ -70,6 +70,7 @@
                     upload:{
                         url: '',
                     },
+                    outline: true,
                 });
             },
             saveMarkdownText() {
