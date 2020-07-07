@@ -7,7 +7,7 @@
       <b>{{ title }}</b>
     </h1>
     <p>
-      {{ content }}
+      {{ content.replace(/#*`*/g,'').substr(0, 200)+'...' }}
     </p>
     <a
       :href="'/article/'+this.aId"

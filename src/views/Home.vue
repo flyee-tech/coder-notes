@@ -6,7 +6,7 @@
         :key="i.id"
         :a-id="i.id"
         :title="i.name"
-        :content="i.content.replace(/#*`*/g,'').substr(0, 200)+'...'"
+        :content="i.content"
       />
       <el-pagination
         v-if="count > 10"
