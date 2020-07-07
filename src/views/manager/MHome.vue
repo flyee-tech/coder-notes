@@ -9,11 +9,6 @@
         v-model="keyWords"
         @keyup.enter.native="search"
       />
-      <el-button
-        icon="el-icon-search"
-        style="margin-left: 2px"
-        @click="search"
-      />
     </div>
 
     <p
