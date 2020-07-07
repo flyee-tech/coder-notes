@@ -125,6 +125,7 @@
                 window.open('/manager/article/' + row.id, '_blank') // 新窗口打开外链接
             },
             search(event) {
+                const loading = this.$loading();
                 console.log(event)
                 console.log(this.keyWords)
                 // this.getData(this.keyWords)
@@ -134,11 +135,12 @@
                     if (res.code === 200) {
                         this.list = res.list;
                     }
+                    loading.close();
                 }).catch(res => {
                     console.log("请求失败");
                     console.log(res);
+                    loading.close();
                 });
-
                 document.getElementById("search-input").blur();
             }
         },
