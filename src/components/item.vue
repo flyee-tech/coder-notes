@@ -9,6 +9,10 @@
     <p>
       {{ content }}
     </p>
+    <a
+      :href="'/article/'+this.aId"
+      style="color: green;font-size: 20px"
+    >继续阅读全文 »</a>
   </div>
 </template>
 
@@ -19,7 +23,7 @@
             return {}
         },
         props: {
-            aId:{
+            aId: {
                 type: Number,
                 required: true
             },
@@ -56,7 +60,7 @@
 
     .title {
         border-bottom: 1px solid #d3d3d3;
-        cursor:pointer
+        cursor: pointer
     }
 
 </style>
