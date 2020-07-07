@@ -65,8 +65,7 @@
                     counter: 100,
                     height: this.curHeight,
                     cache: {
-                        enable: true,
-                        id: this.to.id
+                        enable: false
                     },
                     upload:{
                         url: '',
@@ -148,6 +147,17 @@
             this.beforeMount(200);
             this.initEditor();
             this.getData();
+
+            window.onbeforeunload = function(e) {
+                e = e || window.event;
+                // 兼容IE8和Firefox 4之前的版本
+                if (e) {
+                    e.returnValue = "您是否确认离开此页面?";
+                }
+                // Chrome, Safari, Firefox 4+, Opera 12+ , IE 9+
+                return "您是否确认离开此页面?";
+            };
+
         }
     };
 </script>
